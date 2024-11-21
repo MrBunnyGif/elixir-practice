@@ -1,7 +1,7 @@
 defmodule Tutorials.Recursion.Factorial do
-  def of(1), do: 1
+  def of(1, acc), do: acc
 
-  def of(num) do
-    num * of(num - 1)
+  def of(num, acc \\ 1) do
+    of(num - 1, acc * num)
   end
 end
