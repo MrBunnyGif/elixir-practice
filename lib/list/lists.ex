@@ -1,10 +1,33 @@
 defmodule Tutorials.Lists do
-  def sum_simple([]), do: 0
+  @moduledoc """
+  Documentation for Tutorials.Lists.
+  """
 
-  def sum_simple([h | t]) do
-    h + sum_simple(t)
+  @doc """
+  Sums the elements of a list using recursion.
+
+  ## Examples
+
+      iex> Tutorials.Lists.sum([1, 2, 3])
+      6
+
+  """
+  def sum([]), do: 0
+
+  def sum([h | t]) do
+    h + sum(t)
   end
 
+  @doc """
+  Sums the elements of a list using recursion.
+
+  ## Examples
+
+      iex> Tutorials.Lists.sum([1, 2, 3])
+      6
+
+  """
+  @spec sum_recursive([integer]) :: integer
   def sum_recursive(num, acc \\ 0)
   def sum_recursive([], acc), do: acc
 
