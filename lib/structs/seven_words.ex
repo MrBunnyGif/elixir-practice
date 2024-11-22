@@ -43,5 +43,7 @@ defmodule Tutorials.Structs.SevenWonders do
 
   def name_country_list(wonders) do
     wonders |> Enum.reduce([], fn wonder, acc -> [[wonder.name, wonder.country] | acc] end)
+    #    wonders |> Enum.flat_map(fn wonder -> [wonder.name, wonder.country] end)
+    # mesmo resultado mas com map
   end
 end
