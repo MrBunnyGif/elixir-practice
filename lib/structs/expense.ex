@@ -48,4 +48,23 @@ defmodule Tutorials.Structs.Expense do
     new_item = %{item | amount: amount}
     [new_item | sample() |> List.delete(item)]
   end
+
+  @users ["user1", "user2", "user3"]
+
+  def authenticate(user) when user in @users, do: {:ok, "Authenticated"}
+  def authenticate(_), do: {:error, "Unauthorized"}
+
+  def verify_password(user, _password) when user in @users, do: {:ok, "Password verified"}
+  def verify_password(_user, _password), do: {:error, "Wrong password"}
+
+  def login(user, password) do
+    with {:ok, _auth_msg} <- authenticate(user),
+         {:ok, _auth_msg} =
+           verify_password(user, password) do
+      {:ok, "#{user} Login successful"}
+    else
+      {:error, msg} -> {:error, msg}
+      _ -> :unauthorized
+    end
+  end
 end
