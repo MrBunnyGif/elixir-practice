@@ -22,4 +22,9 @@ defmodule Tutorials.Lists do
   def map(element, func, acc \\ [])
   def map([], _, acc), do: acc |> reverse()
   def map([h | t], func, acc), do: map(t, func, [func.(h) | acc])
+
+  def concat(src, dst), do: concat_func(src |> reverse(), dst)
+
+  def concat_func([], dst), do: dst
+  def concat_func([h | t], dst), do: concat_func(t, [h | dst])
 end
