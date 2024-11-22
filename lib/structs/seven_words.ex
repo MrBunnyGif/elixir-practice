@@ -46,4 +46,9 @@ defmodule Tutorials.Structs.SevenWonders do
     #    wonders |> Enum.flat_map(fn wonder -> [wonder.name, wonder.country] end)
     # mesmo resultado mas com map
   end
+
+  def country_keyword_list(wonders) do
+    wonders
+    |> Enum.reduce([], fn wonder, acc -> [{String.to_atom(wonder.name), wonder.country} | acc] end)
+  end
 end
