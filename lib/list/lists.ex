@@ -27,4 +27,8 @@ defmodule Tutorials.Lists do
 
   def concat_func([], dst), do: dst
   def concat_func([h | t], dst), do: concat_func(t, [h | dst])
+
+  def flat_map(elements, func, acc \\ [])
+  def flat_map([], _func, acc), do: acc
+  def flat_map([h | t], func, acc), do: flat_map(t, func, concat(acc, func.(h)))
 end
