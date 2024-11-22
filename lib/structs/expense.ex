@@ -42,4 +42,10 @@ defmodule Tutorials.Structs.Expense do
   def add_expense(%Expense{} = expense) do
     [expense | sample()]
   end
+
+  def update_amount(title, amount) do
+    [item] = Enum.filter(sample(), fn %{title: expense_title} -> expense_title == title end)
+    new_item = %{item | amount: amount}
+    [new_item | sample() |> List.delete(item)]
+  end
 end
