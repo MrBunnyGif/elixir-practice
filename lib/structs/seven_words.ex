@@ -36,4 +36,8 @@ defmodule Tutorials.Structs.SevenWonders do
   def country_starting_with_i(wonders) do
     wonders |> Enum.filter(fn %{country: country} -> String.starts_with?(country, "I") end)
   end
+
+  def sort_by_country_length(wonders) do
+    wonders |> Enum.sort(fn x, y -> String.length(x.country) < String.length(y.country) end)
+  end
 end
