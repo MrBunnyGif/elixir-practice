@@ -40,4 +40,8 @@ defmodule Tutorials.Structs.SevenWonders do
   def sort_by_country_length(wonders) do
     wonders |> Enum.sort(fn x, y -> String.length(x.country) < String.length(y.country) end)
   end
+
+  def name_country_list(wonders) do
+    wonders |> Enum.reduce([], fn wonder, acc -> [[wonder.name, wonder.country] | acc] end)
+  end
 end
