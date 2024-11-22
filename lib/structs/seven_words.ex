@@ -31,4 +31,9 @@ defmodule Tutorials.Structs.SevenWonders do
     wonders
     |> Enum.filter(fn %{country: country} -> country == countryReceived end)
   end
+
+  @spec country_starting_with_i([t()]) :: [t()]
+  def country_starting_with_i(wonders) do
+    wonders |> Enum.filter(fn %{country: country} -> String.starts_with?(country, "I") end)
+  end
 end
