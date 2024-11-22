@@ -25,4 +25,10 @@ defmodule Tutorials.Structs.SevenWonders do
     wonders
     |> Enum.each(fn %{name: name} -> IO.puts(name) end)
   end
+
+  @spec filter_by_country([t()], String.t()) :: [t()]
+  def filter_by_country(wonders, countryReceived) do
+    wonders
+    |> Enum.filter(fn %{country: country} -> country == countryReceived end)
+  end
 end
